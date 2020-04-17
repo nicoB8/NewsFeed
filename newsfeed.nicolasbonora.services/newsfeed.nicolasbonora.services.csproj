@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\newsfeed.nicolasbonora.entities\newsfeed.nicolasbonora.entities.csproj" />
+    <ProjectReference Include="..\newsfeed.nicolasbonora.repository\newsfeed.nicolasbonora.repository.csproj" />
+  </ItemGroup>
+
+</Project>

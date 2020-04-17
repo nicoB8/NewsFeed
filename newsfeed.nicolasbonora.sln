@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.1082
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "newsfeed.nicolasbonora", "newsfeed.nicolasbonora\newsfeed.nicolasbonora.csproj", "{3D578849-1860-4602-8884-C33F45C15DD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "newsfeed.nicolasbonora", "newsfeed.nicolasbonora\newsfeed.nicolasbonora.csproj", "{3D578849-1860-4602-8884-C33F45C15DD2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "newsfeed.nicolasbonora.services", "newsfeed.nicolasbonora.services\newsfeed.nicolasbonora.services.csproj", "{2422A887-6C8A-4812-A9C4-55F7748B49E8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "newsfeed.nicolasbonora.entities", "newsfeed.nicolasbonora.entities\newsfeed.nicolasbonora.entities.csproj", "{A0B779E2-9096-4BAC-A5BA-6EDFA5C5B12C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "newsfeed.nicolasbonora.repository", "newsfeed.nicolasbonora.repository\newsfeed.nicolasbonora.repository.csproj", "{0699ABCC-2092-440D-8077-84E837F73F19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "newsfeed.nicolasbonora.dtos", "newsfeed.nicolasbonora.dtos\newsfeed.nicolasbonora.dtos.csproj", "{57918785-1CB1-4732-BB95-8615A4E19976}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{3D578849-1860-4602-8884-C33F45C15DD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D578849-1860-4602-8884-C33F45C15DD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D578849-1860-4602-8884-C33F45C15DD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2422A887-6C8A-4812-A9C4-55F7748B49E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2422A887-6C8A-4812-A9C4-55F7748B49E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2422A887-6C8A-4812-A9C4-55F7748B49E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2422A887-6C8A-4812-A9C4-55F7748B49E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0B779E2-9096-4BAC-A5BA-6EDFA5C5B12C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0B779E2-9096-4BAC-A5BA-6EDFA5C5B12C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0B779E2-9096-4BAC-A5BA-6EDFA5C5B12C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0B779E2-9096-4BAC-A5BA-6EDFA5C5B12C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0699ABCC-2092-440D-8077-84E837F73F19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0699ABCC-2092-440D-8077-84E837F73F19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0699ABCC-2092-440D-8077-84E837F73F19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0699ABCC-2092-440D-8077-84E837F73F19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57918785-1CB1-4732-BB95-8615A4E19976}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57918785-1CB1-4732-BB95-8615A4E19976}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57918785-1CB1-4732-BB95-8615A4E19976}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57918785-1CB1-4732-BB95-8615A4E19976}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

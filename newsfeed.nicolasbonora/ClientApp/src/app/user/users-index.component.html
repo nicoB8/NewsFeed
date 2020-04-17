@@ -1,0 +1,7 @@
+<h1>Users</h1>
+
+<p>These is the list of all users in the app. Impersonate one or <a style="cursor: pointer" (click)="createUserModal.show()">Create your own user</a></p>
+
+<users-list-component [showDetailedList]="true" [showActions]="false"></users-list-component>
+
+<create-user-modal-component [users]="usersListComponent.users"></create-user-modal-component>

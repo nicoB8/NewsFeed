@@ -1,0 +1,14 @@
+<div class="row" *ngIf="!!selectedUser">
+  <div class="col-sm-12">
+    <div class="input-group">
+      <input type="text" class="form-control"  [(ngModel)]="post.contentHeader" placeholder="Share your news here...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" (click)="sendPost()">{{ sendPostButtonText }}</button>
+      </span>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <h3 *ngIf="posts.length == 0">There are no posts yet! Add one post by impersonating a user in the <a [routerLink]='["/feeds"]'>Feeds Section</a></h3>
+  <post-component *ngFor="let post of posts | filter : searchText : 'contentHeader'" [post]="post"></post-component>
+</div>

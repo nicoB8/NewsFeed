@@ -1,0 +1,23 @@
+<p *ngIf="!users"><em>Retrieving list of users...</em></p>
+
+<table class='table' *ngIf="users">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th *ngIf="showDetailedList">Email</th>
+      <th *ngIf="showDetailedList">Created Date</th>
+      <th *ngIf="showActions">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of getUserList()">
+      <td>{{ user.name }}</td>
+      <td *ngIf="showDetailedList">{{ user.email }}</td>
+      <td *ngIf="showDetailedList">{{ user.createdDate.split("T")[0] }}</td>
+      <td *ngIf="showActions">
+        <a style="cursor: pointer;" *ngIf="!!selectedUser && !isFollowing(user)" (click)="onClickingFollow(user)">Follow</a>
+        <a style="cursor: pointer;" *ngIf="!!selectedUser && isFollowing(user)">Unfollow</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

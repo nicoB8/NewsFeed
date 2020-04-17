@@ -13,15 +13,43 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
   </ItemGroup>
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
     <Content Remove="$(SpaRoot)**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\src\app\entities\Feed.ts" />
+    <None Remove="ClientApp\src\app\entities\Post.ts" />
+    <None Remove="ClientApp\src\app\entities\User.ts" />
+    <None Remove="ClientApp\src\app\pipes\filter.pipe.ts" />
+    <None Remove="ClientApp\src\app\services\feeds.service.ts" />
+    <None Remove="ClientApp\src\app\services\posts.service.ts" />
+    <None Remove="ClientApp\src\app\services\users.service.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\newsfeed.nicolasbonora.dtos\newsfeed.nicolasbonora.dtos.csproj" />
+    <ProjectReference Include="..\newsfeed.nicolasbonora.repository\newsfeed.nicolasbonora.repository.csproj" />
+    <ProjectReference Include="..\newsfeed.nicolasbonora.services\newsfeed.nicolasbonora.services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\entities\Post.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\entities\Feed.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\entities\User.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\pipes\filter.pipe.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\feeds.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\posts.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\users.service.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

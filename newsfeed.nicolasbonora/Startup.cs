@@ -1,10 +1,15 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using newsfeed.nicolasbonora.repository;
+using newsfeed.nicolasbonora.services;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace newsfeed.nicolasbonora
 {
@@ -27,6 +32,31 @@ namespace newsfeed.nicolasbonora
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddDbContext<NewsFeedContext>(options =>
+        options.UseSqlServer(Configuration.GetConnectionString("NewsFeedDB")));
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAngularLocalHost",
+                builder => builder.WithOrigins("https://localhost:44384"));
+            });
+
+            services.AddMvc().AddJsonOptions(options => {
+                options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            });
+
+            services.AddAutoMapper(typeof(Startup));
+
+            InjectDependencies(services);
+        }
+
+        private void InjectDependencies(IServiceCollection services)
+        {
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IFeedService, FeedService>();
+            services.AddScoped<IPostService, PostService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +71,8 @@ namespace newsfeed.nicolasbonora
                 app.UseExceptionHandler("/Error");
                 app.UseHsts();
             }
+
+            app.UseCors("AllowAngularLocalHost");
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
