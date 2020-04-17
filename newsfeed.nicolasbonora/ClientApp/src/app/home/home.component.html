@@ -16,7 +16,7 @@
 
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane fade in active" id="Feed">
-      <post-index-component [posts]="posts" [searchText]="searchText"></post-index-component>
+      <post-index-component [posts]="posts" [searchText]="searchText" (refreshFeed)="refreshFeed()"></post-index-component>
     </div>
   </div>
 </div>

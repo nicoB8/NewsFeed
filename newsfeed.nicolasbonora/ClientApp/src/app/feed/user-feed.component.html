@@ -13,7 +13,7 @@
     </ul>
 
     <div class="tab-content">
-      <div role="tabpanel" class="tab-pane fade in active" id="{{instanceId}}"><post-index-component [posts]="posts" [selectedUser]="selectedUser"></post-index-component></div>
+      <div role="tabpanel" class="tab-pane fade in active" id="{{instanceId}}"><post-index-component [posts]="posts" [selectedUser]="selectedUser" (refreshFeed)="refreshFeed()"></post-index-component></div>
       <div role="tabpanel" class="tab-pane fade" id="{{instanceId + 1}}"><users-list-component [showDetailedList]="false" [showActions]="true" [selectedUser]="selectedUser"></users-list-component></div>
     </div>
   </div>

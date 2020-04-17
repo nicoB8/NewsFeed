@@ -16,7 +16,7 @@
       <td *ngIf="showDetailedList">{{ user.createdDate.split("T")[0] }}</td>
       <td *ngIf="showActions">
         <a style="cursor: pointer;" *ngIf="!!selectedUser && !isFollowing(user)" (click)="onClickingFollow(user)">Follow</a>
-        <a style="cursor: pointer;" *ngIf="!!selectedUser && isFollowing(user)">Unfollow</a>
+        <a style="cursor: pointer;" *ngIf="!!selectedUser && isFollowing(user)" (click)="onClickingUnfollow(user)">Unfollow</a>
       </td>
     </tr>
   </tbody>

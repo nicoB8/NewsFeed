@@ -21,5 +21,18 @@ namespace newsfeed.nicolasbonora.services
             await SaveChangesAsync();
             return relationCreated.Entity;
         }
+
+        public async Task<UserFeed> Unsubscribe(string id, string userId)
+        {
+            var userFeedRelation = new UserFeed()
+            {
+                FeedId = id,
+                UserId = userId
+            };
+
+            var relationCreated = _context.UserFeeds.Remove(userFeedRelation);
+            await SaveChangesAsync();
+            return relationCreated.Entity;
+        }
     }
 }

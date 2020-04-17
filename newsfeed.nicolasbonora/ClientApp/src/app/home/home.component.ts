@@ -10,9 +10,14 @@ export class HomeComponent {
   public posts: Post[] = [];
   public searchText: string = '';
 
-  constructor(postsService: PostsService) {
-    postsService.get().subscribe(result => {
+  constructor(private postsService: PostsService) {
+    this.refreshFeed();
+  }
+
+  refreshFeed(): void {
+    this.postsService.get().subscribe(result => {
       this.posts = result;
     }, error => console.error(error));
   }
+
 }

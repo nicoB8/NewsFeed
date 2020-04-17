@@ -21,6 +21,11 @@ export class FeedsService {
     return this.http.get<boolean>(apiUrl);
   }
 
+  unsubscribeFromFeed(id, userId): Observable<boolean> {
+    let apiUrl = this.baseUrl + "/" + id + "/unsubscribe/" + userId;
+    return this.http.get<boolean>(apiUrl);
+  }
+
   // Handle Errors 
   error(error: HttpErrorResponse) {
     let errorMessage = '';

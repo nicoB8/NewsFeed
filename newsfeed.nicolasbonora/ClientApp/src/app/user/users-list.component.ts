@@ -25,6 +25,16 @@ export class UsersListComponent {
     })
   }
 
+  public onClickingUnfollow(user: User) {
+    this.feedsService.unsubscribeFromFeed(user.id, this.selectedUser.id).subscribe(result => {
+      var indexElement = this.selectedUser.followingFeeds.indexOf(user.id);
+
+      if (indexElement > -1) {
+        this.selectedUser.followingFeeds.splice(indexElement, 1);
+      }
+    })
+  }
+
   public getUserList(): User[] {
     var usersList = !!this.selectedUser ? this.users.filter(u => u.id != this.selectedUser.id) : this.users;
     return usersList;

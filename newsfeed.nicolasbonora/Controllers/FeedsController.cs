@@ -34,8 +34,26 @@ namespace newsfeed.nicolasbonora.Controllers
             if (id.Length == 0 || userId.Length == 0)
                 return BadRequest();
 
-            var addedPostEntity = await _feedService.Subscribe(id, userId);
-            if (addedPostEntity == null)
+            var userSubscription = await _feedService.Subscribe(id, userId);
+            if (userSubscription == null)
+                return Conflict();
+
+            return Ok(true);
+        }
+
+
+        // GET: api/Feeds/{id}/unsubscribe/{userId}
+        [HttpGet("{id}/unsubscribe/{userId}", Name = "Unsubscribe")]
+        public async Task<ActionResult<bool>> Unsubcsribe(string id, string userId)
+        {
+            id = id.Trim();
+            userId = userId.Trim();
+
+            if (id.Length == 0 || userId.Length == 0)
+                return BadRequest();
+
+            var userUnsubscription = await _feedService.Unsubscribe(id, userId);
+            if (userUnsubscription == null)
                 return Conflict();
 
             return Ok(true);

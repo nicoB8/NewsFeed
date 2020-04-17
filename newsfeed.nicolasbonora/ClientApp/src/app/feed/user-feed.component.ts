@@ -17,6 +17,12 @@ export class UserFeedComponent {
     this.instanceId = Math.floor(Math.random() * (+1000 - +0)) + +0;
   }
 
+  refreshFeed(): void {
+    if (this.selectedUser != null) {
+      this.onSelectUser();
+    }
+  }
+  
   onSelectUser(): void {
     console.log("Selected user: ", this.selectedUser);
     this.postsService.getByUserId(this.selectedUser.id).subscribe(result => {
